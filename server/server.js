@@ -14,9 +14,7 @@ let asrProto = grpc.loadPackageDefinition(packageDefinition).asrserver;
 
 async function runAsr(call, callback) {
   let stime = performance.now(); // start time
-  console.log("Asr task received from client: ");
-  console.log("speaking id", call.request.speakingId);
-  console.log(call.request.objectId);
+  console.log(`Task: ${call.request.speakingId} ${call.request.objectId}`);
 
   try {
     let result = await runTask(call.request.objectId);
@@ -30,9 +28,9 @@ async function runAsr(call, callback) {
     };
 
     let etime = performance.now(); // end time
-    console.log("Asr task completed");
     resp.duration = (etime - stime) / 1000;
-    console.log("duration", resp.duration);
+    resp.duration = Math.round(resp.duration * 100) / 100;
+    console.log(`Task completed. Duration: ${resp.duration} seconds`);
     callback(null, resp);
   } catch (error) {
     let resp = {
