@@ -45,17 +45,17 @@ async function runAsr(call, callback) {
   }
 }
 
-export default function main() {
+export default function main(address) {
   var server = new grpc.Server();
   server.addService(asrProto.Asr.service, {
     runAsr: runAsr,
   });
   server.bindAsync(
-    "0.0.0.0:9000",
+    address,
     grpc.ServerCredentials.createInsecure(),
     () => {
       server.start();
-      console.log("Server running at 0.0.0.0:9000");
+      console.log("Server running at " + address);
     }
   );
 }
