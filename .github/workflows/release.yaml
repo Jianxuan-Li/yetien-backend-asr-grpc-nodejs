@@ -71,7 +71,6 @@ jobs:
           file: ./Dockerfile
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          target: python3
 
   ## Generate deployment files.
   generate-artifacts:
