@@ -6,8 +6,9 @@ export const asrRequest = async (objectId) => {
   const buffer = await download(objectId);
   const fileBlob = new Blob([buffer]);
   try {
-    return await post(fileBlob, "sample1.flac", { ...config.model0 });
+    return await post(fileBlob, objectId, { ...config.model0 });
   } catch (error) {
+    console.log(error);
     return { error: error };
   }
 };

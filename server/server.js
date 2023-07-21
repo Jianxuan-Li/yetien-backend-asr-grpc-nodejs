@@ -20,7 +20,7 @@ async function runAsr(call, callback) {
 
   try {
     let result = await runTask(call.request.objectId);
-    console.log("result", result.data)
+    console.log("result", result)
 
     let resp = {
       status: true,
