@@ -1,0 +1,27 @@
+{
+  "type": "module",
+  "name": "grpc-server-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node index.js",
+    "test_client": "node _test_client.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.374.0",
+    "@grpc/grpc-js": "^1.8.18",
+    "@grpc/proto-loader": "^0.7.8",
+    "axios": "^1.4.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.22.9",
+    "babel-jest": "^29.6.1",
+    "jest": "^29.6.1"
+  }
+}
