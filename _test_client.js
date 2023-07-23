@@ -18,7 +18,11 @@ function main() {
   }
 
   const successed = (err, resp) => {
-    console.log("Error:", err);
+    if (err){
+      console.log("Error:", err.message);
+      console.log("Error Response:", resp);
+      return;
+    }
     console.log("Greeting:", resp);
   }
 

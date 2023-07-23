@@ -1,6 +1,7 @@
 import path from "path";
 import grpc from "@grpc/grpc-js";
 import protoLoader from "@grpc/proto-loader";
+import moment from "moment";
 
 import { runTask } from "./task.js";
 
@@ -14,7 +15,9 @@ let asrProto = grpc.loadPackageDefinition(packageDefinition).asrserver;
 
 async function runAsr(call, callback) {
   let stime = performance.now(); // start time
-  console.log(`Task: ${call.request.speakingId} ${call.request.objectId}`);
+  
+  const currentTime = moment().format("YYYY-MM-DD HH:mm:ss");
+  console.log(`Task: ${call.request.speakingId} ${call.request.objectId} ${currentTime}`);
 
   try {
     let result = await runTask(call.request.objectId);
