@@ -1,8 +1,8 @@
 # Yetien
 
-## Original Repo
+## This project is deprecated
 
-https://github.com/Jianxuan-Li/yetien-backend-asr-grpc
+new: https://github.com/Jianxuan-Li/yetien-model-grpc-server
 
 ## Overview
 
